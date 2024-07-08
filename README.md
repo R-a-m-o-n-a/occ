@@ -13,7 +13,7 @@ For more detailed information, please refer to the README files in the client an
 
 **Run server:**
    ```bash
-   npm install
+   npm start
    ```
    
 ### Client
