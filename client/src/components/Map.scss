@@ -1,0 +1,19 @@
+@use "../base";
+
+#mapContainer {
+  height: 80vh;
+  width: 100%;
+  margin: auto;
+  background: rgba(base.$white, 0.5);
+  border-radius: base.$card-border-radius;
+}
+
+.mapboxgl-popup-content {
+  padding: 1rem !important;
+  font-size: 0.8rem;
+
+  h2 {
+    margin-top: 0;
+    margin-bottom: 0.5rem;
+  }
+}

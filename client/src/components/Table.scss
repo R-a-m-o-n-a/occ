@@ -1,0 +1,27 @@
+@use "../base";
+
+h1 {
+  margin-top: 1rem;
+}
+
+.table {
+  margin: auto;
+
+  // overwrite css variables of ag grid theme to apply custom styling
+  &.ag-theme-quartz {
+    --ag-font-family: #{base.$base-font};
+
+    --ag-background-color: #{base.$white};
+    //--ag-odd-row-background-color: color-mix(in srgb, transparent, white 10%);
+    --ag-header-background-color: #{base.$white};
+    --ag-foreground-color: #{base.$primary-text-color};
+    --ag-header-foreground-color: #{base.$primary-text-color};
+
+    --ag-active-color: grey; // for hover and focus
+
+    --ag-row-border-style: solid;
+    --ag-row-border-width: 1px;
+    --ag-row-border-color: color-mix(in srgb, transparent, black 10%);
+    --ag-header-column-resize-handle-color: color-mix(in srgb, transparent, black 10%);
+  }
+}

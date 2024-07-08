@@ -1,0 +1,133 @@
+@use "../base";
+
+.header {
+  position: relative;
+  max-width: 800px;
+  margin: auto;
+
+  .go-back {
+    font-size: 1.5rem;
+    position: absolute;
+    top: 0.5rem;
+    left: 0;
+    line-height: 3rem;
+    width: 2rem;
+
+    span {
+      // optional signifier for more accessibility (remove the display: none)
+      display: none;
+      text-transform: uppercase;
+      font-size: 0.8rem;
+      line-height: 3rem;
+      position: absolute;
+
+      top: -0.5px;
+      font-weight: 500;
+      left: 1.8rem;
+    }
+  }
+}
+
+#quizMapContainer {
+  height: 100%;
+  width: 100%;
+  max-width: 800px;
+  background: rgba(base.$white, 0.5);
+  border-radius: base.$card-border-radius;
+}
+
+.results-wrapper {
+  width: 100%;
+  max-width: 800px;
+  margin: auto;
+
+  #resultsTable {
+    width: 100%;
+    max-width: 400px;
+    margin: auto;
+
+    // hide arrow when sorting to keep heading visible on narrow row
+    .ag-column-first .ag-sort-indicator-container {
+      display: none;
+    }
+  }
+
+  .info {
+    max-width: 430px;
+    margin: 1.5rem auto;
+  }
+
+  button {
+    display: block;
+    margin: 1.5rem auto;
+  }
+}
+
+.map-wrapper {
+  position: relative;
+  height: 60vh;
+  width: 100%;
+  max-width: 800px;
+  margin: auto;
+
+  .map-loading {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    z-index: 50;
+    transform: translate(-50%, -50%);
+  }
+
+  .distance-box, button {
+    position: absolute;
+    top: 0.5rem;
+    z-index: 5;
+    opacity: 0.9;
+  }
+
+  .distance-box {
+    left: 0.5rem;
+    background: transparent;
+    font-size: 1rem;
+    color: base.$primary-text-color;
+    border-radius: 10px;
+    margin: 0.5rem 1rem;
+
+    span {
+      text-transform: uppercase;
+      font-size: 0.8rem;
+      margin-bottom: 0.3rem;
+      @include base.subheading-font();
+    }
+  }
+
+  button {
+    right: 0.5rem;
+  }
+
+  .user-marker {
+    width: 1rem;
+    height: 1rem;
+    background-color: base.$primary-text-color;
+    border-radius: 100%;
+  }
+}
+
+.quiz-question {
+  margin: 1rem auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  .question-no {
+    margin-bottom: 0.5rem;
+    font-size: 0.8rem;
+    font-weight: 500;
+  }
+
+  .question {
+    @include base.subheading-font();
+    font-size: 1.4rem;
+  }
+}

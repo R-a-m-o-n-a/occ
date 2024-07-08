@@ -1,0 +1,9 @@
+const {
+  VITE_SERVER_URL: SERVER_URL,
+  VITE_MAPBOX_ACCESS_TOKEN: MAPBOX_ACCESS_TOKEN,
+} = import.meta.env;
+
+export {
+  SERVER_URL,
+  MAPBOX_ACCESS_TOKEN
+};

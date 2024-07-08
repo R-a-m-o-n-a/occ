@@ -1,0 +1,52 @@
+@use "../../base";
+
+$primary-button-background: rgba(255, 255, 255, 0.6);
+
+.button {
+  border-radius: base.$button-border-radius;
+  background-color: base.$semitransparent-white;
+  padding: 1rem 1.5rem;
+  cursor: pointer;
+  text-transform: uppercase;
+  margin: 0.5rem 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  box-shadow: none;
+  font-size: 1rem;
+
+  &.primary {
+    background-color: $primary-button-background;
+    @include base.hover(rgba(#fff, 0.9));
+  }
+
+  &.text-button {
+    background-color: transparent;
+    @include base.hover(transparent);
+    color: base.$primary-text-color;
+
+    &:hover {
+      box-shadow: none;
+      -webkit-filter: drop-shadow(0 0.4em 0.3em rgba(#000000, 0.2));
+      filter: drop-shadow(0 0.3em 0.3em rgba(#000000, 0.2));
+    }
+  }
+
+  &.secondary {
+    background-color: rgba(base.$primary-text-color,0.9);
+    color: white;
+    @include base.hover(#070606);
+  }
+
+  .fa-icon-left {
+    margin-right: 0.7rem;
+  }
+  .fa-icon-right {
+    margin-left: 0.7rem;
+  }
+}
+
+a {
+  text-decoration: none;
+}

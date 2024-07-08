@@ -1,0 +1,23 @@
+@use "../../base";
+
+.arrow-icon {
+  color: base.$primary-text-color;
+  font-size: 3rem;
+  position: fixed;
+  bottom: 2rem;
+  right: 2.5rem;
+  cursor: pointer;
+  opacity: 0.8;
+  z-index: 5;
+  transition: visibility 0.5s, opacity 0.5s;
+  @include base.hover(transparent);
+
+  &.hidden {
+    opacity: 0;
+    visibility: hidden;
+  }
+
+  &:hover {
+    opacity: 1;
+  }
+}

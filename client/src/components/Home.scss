@@ -1,0 +1,107 @@
+@use "../base";
+
+.home {
+  .page {
+    min-height: calc(100vh - 2em);
+    padding: 1rem;
+    position: relative;
+
+    &.error-page {
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+      align-items: center;
+
+      h3 {
+        margin: 0.5rem;
+      }
+
+      button {
+        margin-top: 2rem;
+      }
+    }
+  }
+
+  .welcome-header {
+    padding-top: 2rem;
+    width: fit-content;
+    margin: 0 auto 2rem;
+
+    h1 {
+      font-size: 4rem;
+      margin: 0;
+      position: absolute;
+
+      // position both headings centrally on small screens
+      @media (max-width: 500px) {
+        position: relative;
+        margin-left: -0.2em; // account for exclamation point to properly centralize heading
+      }
+    }
+
+    h3 {
+      padding-left: 60px;
+      width: fit-content;
+      margin-top: 2.5rem;
+
+      // position both headings centrally on small screens
+      @media (max-width: 500px) {
+        margin-top: 0.5rem;
+        padding-left: 0;
+
+        // remove line break to have text wrap dynamically
+        br {
+          display: none;
+        }
+      }
+    }
+  }
+
+  .info {
+    @include base.subheading-font;
+    text-align: center;
+    font-size: 0.8rem;
+    margin: 1.5em 0 4rem;
+  }
+
+  .button-group {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+    align-items: center;
+
+    // space all buttons evenly, esp. important on small screens, for a neat look, keep also on big screens
+    .button {
+      width: 160px;
+    }
+
+    .separator-text {
+      display: inline-block;
+      text-align: center;
+      margin: 1rem;
+    }
+
+    // on smaller screens, break button group in the following way: primary buttons on top, - or - in its own row, then secondary button in its own row
+    @media (max-width: 800px) {
+      .button {
+        margin: 0.5rem 0.75rem;
+      }
+
+      .separator-text {
+        flex-basis: 100%;
+      }
+    }
+  }
+
+  .go-to-quiz {
+    margin-top: 3rem;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+
+    @media (max-width: 650px) {
+      flex-direction: column;
+    }
+  }
+}

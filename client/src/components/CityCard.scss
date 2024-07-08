@@ -1,0 +1,123 @@
+@use "../base";
+
+$card-width: 200px;
+$card-height: 200px;
+$card-width-flipped: 300px;
+$card-height-flipped: 300px;
+
+.card {
+  width: $card-width;
+  height: $card-height;
+  perspective: 1000px; /* adds 3D effect */
+  transition: all ease-out 0.6s;
+  position: relative;
+}
+
+.card-inner-hover {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+}
+
+/* card-inner container is needed to position front and back side */
+.card-inner {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  transform-style: preserve-3d;
+  transition: all ease-out 0.6s;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden; /* for Safari */
+}
+
+/* flipped state, bigger and rotated by 180° */
+.card-flipped {
+  height: $card-height-flipped;
+  width: $card-width-flipped;
+
+  .card-inner {
+    transform: rotateY(-180deg);
+
+    .card-back .card-back-content {
+      font-size: 1rem;
+    }
+  }
+
+}
+
+.card-front, .card-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden; /* for Safari */
+  box-sizing: border-box; // include padding in width and height
+  padding: 2rem;
+  border-radius: base.$card-border-radius;
+}
+
+.card-front {
+  background-color: base.$semitransparent-white;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  @include base.hover();
+
+  h3 {
+    margin-bottom: 0;
+  }
+
+  .native-city-nme {
+    font-size: 0.9rem;
+    opacity: 0.4;
+    font-weight: 600;
+  }
+}
+
+.card-back {
+  background-color: base.$white;
+  font-size: 1rem;
+  transform: rotateY(180deg);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  @include base.hover(base.$white);
+
+  // keep rotation on hover lift animation
+  &:hover {
+    transform: rotateY(180deg) translateY(-0.1em);
+  }
+
+  // set font-size small and grow only on flip to not break multiline text in growing card
+  .card-back-content {
+    font-size: 0.5rem;
+    transition: all ease-out 0.6s;
+  }
+
+  h4 {
+    margin-top: 0;
+    margin-bottom: 0.75rem;
+    font-size: 1.2rem;
+  }
+
+  table {
+    text-align: left;
+
+    td {
+      padding: 0.2rem 0.5rem;
+
+      &:first-child {
+        text-align: center;
+      }
+    }
+
+    ul {
+      list-style-type: none;
+      padding: 0;
+      margin: 0;
+    }
+  }
+}
