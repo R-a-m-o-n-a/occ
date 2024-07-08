@@ -2,7 +2,7 @@
 
 For more detailed information, please refer to the README files in the client and server folders, respectively.
 
-##Quick Installation Guide
+## Quick Installation Guide
 
 ### Server
 
